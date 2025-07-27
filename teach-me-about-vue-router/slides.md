@@ -1,6 +1,7 @@
 ---
 theme: seriph
-background: https://cover.sli.dev
+# より読みやすいシンプルな背景に変更
+background: '#1e3a8a'
 title: Vue Router入門
 info: |
   ## Vue Router入門
@@ -42,28 +43,22 @@ transition: fade-out
 
 # Vue Routerとは？ 🤔
 
-**Vue Router**は、Vue.jsの公式ルーターライブラリです
+<div class="text-center mt-16">
 
-<v-clicks>
+## **Vue.jsで「ページ遷移」を実現する公式ライブラリ**
 
-- 📱 **Single Page Application (SPA)** - ページ遷移を高速化
-- 🧭 **ナビゲーション** - URLに基づいてコンポーネントを切り替え
-- 🔗 **動的ルーティング** - パラメータ付きのURL管理
-- 🛡️ **ナビゲーションガード** - アクセス制御機能
+<div class="mt-16 text-2xl">
 
-</v-clicks>
+🔗 **URLでページを切り替え**
 
-<br>
+<div class="mt-8 text-xl text-gray-300">
+<code class="bg-blue-900 px-4 py-2 rounded text-white">/home</code> → ホームページ<br><br>
+<code class="bg-blue-900 px-4 py-2 rounded text-white">/about</code> → アバウトページ
+</div>
 
-<v-click>
+</div>
 
-## なぜVue Routerが必要？
-
-- 複数ページのWebアプリケーションを作成
-- ブラウザの戻る・進むボタンに対応
-- URLでページ状態を管理・共有
-
-</v-click>
+</div>
 
 <!--
 Vue RouterはVue.jsアプリでページ間の移動を管理するための公式ツールです。
@@ -72,48 +67,49 @@ Vue Routerがその切り替えを管理し、URLとコンポーネントを紐�
 -->
 
 ---
-layout: two-cols
+
+# なぜVue Routerが必要？ 🤔
+
+<div class="text-center mt-12">
+
+## **普通のVue.jsだけでは...**
+
+<div class="mt-12 text-2xl space-y-6">
+
+❌ ページ遷移ができない
+
+❌ URLが変わらない
+
+❌ ブラウザの戻るボタンが使えない
+
+</div>
+
+<div class="mt-16 p-8 bg-green-800 text-white rounded-lg text-2xl">
+✨ **Vue Routerですべて解決！**
+</div>
+
+</div>
+
 ---
 
-# 住所システムのアナロジー 🏠
+# 簡単な例で理解しよう 🏠
 
-Vue Routerは**郵便システム**と似ています
+<div class="text-center mt-12">
 
-<v-clicks>
+## **Vue Router = 「住所」と「家」を繋ぐシステム**
 
-**郵便システム**
-- 🏠 **住所** → 特定の家を特定
-- 📮 **郵便配達員** → 正しい家に配達
-- 🗺️ **地図** → 住所とルートの対応
+<div class="mt-16 text-xl space-y-8">
 
-**Vue Router**
-- 🌐 **URL** → 特定のページを特定
-- 🛣️ **Router** → 正しいコンポーネントを表示
-- 📋 **Routes** → URLとコンポーネントの対応
+<div class="p-8 bg-blue-900 text-white rounded border">
+  <h3 class="text-2xl font-bold mb-4">🏠 現実世界</h3>
+  <p class="text-xl">「東京都渋谷区...」の住所 → 特定の家に到着</p>
+</div>
 
-</v-clicks>
+<div class="p-8 bg-green-800 text-white rounded border">
+  <h3 class="text-2xl font-bold mb-4">🌐 Vue Router</h3>
+  <p class="text-xl">「/home」のURL → ホームコンポーネントを表示</p>
+</div>
 
-::right::
-
-<div v-click="4" class="mt-12">
-
-```ts
-// ルート定義 = 住所録
-const routes = [
-  { 
-    path: '/home',      // 住所
-    component: Home     // 届け先（コンポーネント）
-  },
-  { 
-    path: '/about', 
-    component: About 
-  }
-]
-```
-
-<div class="mt-8 p-4 bg-blue-50 rounded">
-  <strong>ポイント：</strong><br>
-  URLが変わると、対応するコンポーネントが表示される
 </div>
 
 </div>
@@ -125,74 +121,105 @@ const routes = [
 
 ---
 
-# セットアップ方法 🚀
+# セットアップ: 1. インストール 📦
 
-Vue Routerを使い始めるための基本設定
+<div class="text-center mt-16">
 
-<div class="grid grid-cols-2 gap-8">
+## **Vue Routerをプロジェクトに追加**
 
-<div>
+<div class="mt-16">
 
-## 1. インストール
+### プロジェクトのルートディレクトリで実行：
 
 ```bash
 npm install vue-router@4
 ```
 
-## 2. ルーターの作成
+<div class="mt-12 p-6 bg-green-800 text-white rounded text-xl">
+✅ これでVue Routerがプロジェクトに追加されました！
+</div>
 
-```ts {monaco}
+</div>
+
+</div>
+
+---
+
+# セットアップ: 2. ルート定義 🗺️
+
+<div class="mt-8">
+
+## **`router/index.ts` でルートを定義**
+
+```ts
 // router/index.ts
-import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-
 const routes = [
   { path: '/', component: Home },
   { path: '/about', component: About }
 ]
+```
+
+<div class="mt-8 p-6 bg-blue-900 text-white rounded text-lg">
+💡 **ポイント**: URLとコンポーネントを対応付け
+</div>
+
+</div>
+
+---
+
+# セットアップ: 3. ルーター作成 ⚙️
+
+<div class="mt-8">
+
+## **ルーターインスタンスを作成**
+
+```ts
+// router/index.ts
+import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
   history: createWebHistory(),
   routes
 })
-
-export default router
 ```
 
 </div>
 
-<div v-click>
+---
 
-## 3. アプリに登録
+# セットアップ: 4. アプリ登録 🔗
 
-```ts {monaco}
+<div class="mt-8">
+
+## **Vueアプリにルーターを登録**
+
+```ts
 // main.ts
 import { createApp } from 'vue'
-import App from './App.vue'
 import router from './router'
 
 const app = createApp(App)
 app.use(router)
-app.mount('#app')
 ```
 
-## 4. 基本的な使用
+</div>
 
-```vue {monaco}
+---
+
+# セットアップ: 5. テンプレート使用 🎨
+
+<div class="mt-8">
+
+## **`router-view`でコンテンツ表示**
+
+```vue
 <!-- App.vue -->
 <template>
   <div>
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-    </nav>
     <router-view />
   </div>
 </template>
 ```
-
-</div>
 
 </div>
 
@@ -208,67 +235,23 @@ app.mount('#app')
 layout: two-cols
 ---
 
-# 基本的なルーティング 🔗
+# セットアップ: 6. ナビゲーションリンク 🔗
 
-`router-link`と`router-view`の使い方
+<div class="mt-8">
 
-## router-link
-ナビゲーション用のリンクコンポーネント
+## **`router-link`でページ遷移**
 
-```vue {monaco}
+```vue
 <template>
   <nav>
-    <!-- 基本的な使用 -->
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
-    
-    <!-- アクティブなリンクのスタイリング -->
-    <router-link 
-      to="/contact"
-      active-class="active-link"
-    >
-      Contact
-    </router-link>
   </nav>
 </template>
-
-<style>
-.active-link {
-  color: #42b883;
-  font-weight: bold;
-}
-</style>
 ```
 
-::right::
-
-<div v-click>
-
-## router-view
-ルートに対応するコンポーネントを表示
-
-```vue {monaco}
-<template>
-  <div id="app">
-    <header>
-      <nav>
-        <router-link to="/">Home</router-link>
-        <router-link to="/about">About</router-link>
-      </nav>
-    </header>
-    
-    <main>
-      <!-- ここにマッチしたコンポーネントが表示される -->
-      <router-view />
-    </main>
-  </div>
-</template>
-```
-
-<div class="mt-4 p-4 bg-green-50 rounded">
-  <strong>📝 覚えるポイント：</strong><br>
-  • <code>router-link</code> = ナビゲーションリンク<br>
-  • <code>router-view</code> = コンテンツ表示エリア
+<div class="mt-8 p-6 bg-green-800 text-white rounded text-lg">
+✨ **完成！** これでVue Routerが使えるようになりました
 </div>
 
 </div>
@@ -281,90 +264,91 @@ active-classでアクティブなリンクにスタイルを適用できます�
 
 ---
 
-# 動的ルーティング 🎯
+# 動的ルーティングとは？ 🎯
 
-URLパラメータを使って動的なルートを作成
+<div class="text-center mt-12">
 
-<div class="grid grid-cols-2 gap-6">
+## **1つのコンポーネントで複数の似たページを処理**
 
-<div>
+<div class="mt-16 text-xl">
 
-## ルート定義
+例：「ユーザー123の詳細」「ユーザー456の詳細」などを
+同じコンポーネントで処理できます
 
-```ts {monaco}
+</div>
+
+<div class="mt-12 p-8 bg-blue-900 text-white rounded border text-xl">
+<code class="bg-blue-800 px-3 py-1 rounded">/users/123</code> → UserDetailコンポーネント<br><br>
+<code class="bg-blue-800 px-3 py-1 rounded">/users/456</code> → 同じUserDetailコンポーネント
+</div>
+
+</div>
+
+---
+
+# 動的ルートの定義 📋
+
+## **`:id` でパラメータを指定**
+
+```ts
 // router/index.ts
 const routes = [
-  // 静的ルート
-  { path: '/users', component: UserList },
-  
-  // 動的ルート（パラメータ付き）
-  { 
-    path: '/users/:id', 
-    component: UserDetail 
-  },
-  
-  // 複数パラメータ
-  { 
-    path: '/users/:id/posts/:postId', 
-    component: UserPost 
-  }
+  { path: '/users/:id', component: UserDetail }
 ]
 ```
 
-## ナビゲーション
+---
 
-```vue {monaco}
-<template>
-  <div>
-    <!-- 静的リンク -->
-    <router-link to="/users">全ユーザー</router-link>
-    
-    <!-- 動的リンク -->
-    <router-link to="/users/123">ユーザー123</router-link>
-    <router-link to="/users/456">ユーザー456</router-link>
-  </div>
-</template>
-```
+# パラメータの仕組み 🔑
+
+## **`:id` の部分が動的に変わります**
+
+<div class="mt-8 space-y-4 text-xl">
+
+✅ `/users/123` → `id = "123"`
+
+✅ `/users/456` → `id = "456"`
+
+✅ `/users/abc` → `id = "abc"`
 
 </div>
 
-<div v-click>
+<div class="mt-8 p-6 bg-blue-900 text-white rounded border text-lg">
+💡 **すべて同じUserDetailコンポーネントで処理**
+</div>
 
-## パラメータの取得
+---
 
-```vue {monaco}
-<!-- UserDetail.vue -->
-<template>
-  <div>
-    <h1>ユーザー詳細</h1>
-    <p>ユーザーID: {{ userId }}</p>
-    <p>投稿ID: {{ postId }}</p>
-  </div>
-</template>
+# パラメータの取得 (1/2) 📝
 
+## **`useRoute`を使ってアクセス**
+
+```vue
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { computed } from 'vue'
 
 const route = useRoute()
-
-// パラメータを取得
-const userId = computed(() => route.params.id)
-const postId = computed(() => route.params.postId)
-
-// またはreactiveに監視
-watch(() => route.params.id, (newId) => {
-  console.log('ユーザーIDが変更:', newId)
-})
 </script>
 ```
 
-<div class="mt-4 p-3 bg-blue-50 rounded text-sm">
-  <strong>💡 Tips:</strong> パラメータは文字列で返されます
-</div>
+---
 
-</div>
+# パラメータの取得 (2/2) 📝
 
+## **パラメータを取得**
+
+```vue
+<script setup lang="ts">
+const userId = computed(() => route.params.id)
+</script>
+
+<template>
+  <p>ユーザーID: {{ userId }}</p>
+</template>
+```
+
+<div class="mt-8 p-6 bg-blue-900 text-white rounded border text-lg">
+💡 **重要**: パラメータはすべて文字列で返されます
 </div>
 
 <!--
@@ -377,38 +361,47 @@ watch(() => route.params.id, (newId) => {
 
 # ネストされたルート 🏗️
 
-親子関係のあるルートを定義
-
-<div class="grid grid-cols-2 gap-6">
+<div class="grid grid-cols-2 gap-8">
 
 <div>
 
-## ルート構造
-
-```ts {monaco}
-// router/index.ts
-const routes = [
-  {
-    path: '/user/:id',
-    component: User,
-    children: [
-      // /user/:id にマッチした時は空のrouter-viewが表示
-      { path: '', component: UserHome },
-      
-      // /user/:id/profile にマッチ
-      { path: 'profile', component: UserProfile },
-      
-      // /user/:id/posts にマッチ
-      { path: 'posts', component: UserPosts }
-    ]
-  }
-]
+```ts
+const routes = [{
+  path: '/user/:id',
+  component: User,
+  children: [
+    { path: '', component: UserHome },
+    { path: 'profile', component: UserProfile },
+    { path: 'posts', component: UserPosts }
+  ]
+}]
 ```
 
-## 親コンポーネント
+</div>
 
-```vue {monaco}
-<!-- User.vue -->
+<div>
+
+## ポイント
+
+**メリット**
+- 共通部分を1度だけ書く
+- URLが階層的になる
+
+**使用例**
+- `/user/123` → 基本情報
+- `/user/123/profile` → 詳細
+- `/user/123/posts` → 投稿
+
+</div>
+
+</div>
+
+---
+
+# 親コンポーネント: ナビゲーション 🧭
+
+```vue
+<!-- User.vue template部分 -->
 <template>
   <div>
     <h1>ユーザー: {{ $route.params.id }}</h1>
@@ -417,13 +410,20 @@ const routes = [
       <router-link :to="`/user/${$route.params.id}`">
         ホーム
       </router-link>
-      <router-link :to="`/user/${$route.params.id}/profile`">
-        プロフィール
-      </router-link>
-      <router-link :to="`/user/${$route.params.id}/posts`">
-        投稿
-      </router-link>
     </nav>
+  </div>
+</template>
+```
+
+---
+
+# 親コンポーネント: router-view 📺
+
+```vue
+<!-- User.vue template部分 -->
+<template>
+  <div>
+    <!-- ナビゲーション -->
     
     <!-- 子ルートがここに表示される -->
     <router-view />
@@ -431,44 +431,25 @@ const routes = [
 </template>
 ```
 
+<div class="mt-8 p-6 bg-blue-900 text-white rounded border text-lg">
+💡 **`router-view`に子コンポーネントが表示される**
 </div>
 
-<div v-click>
+---
 
-## 子コンポーネント
+# 子コンポーネント例 🔄
 
-```vue {monaco}
+## UserProfile.vue
+
+```vue
 <!-- UserProfile.vue -->
 <template>
   <div>
     <h2>プロフィール</h2>
     <p>ユーザーID: {{ $route.params.id }}</p>
-    <!-- プロフィール情報 -->
   </div>
 </template>
 ```
-
-```vue {monaco}
-<!-- UserPosts.vue -->
-<template>
-  <div>
-    <h2>投稿一覧</h2>
-    <p>ユーザーID: {{ $route.params.id }}</p>
-    <!-- 投稿リスト -->
-  </div>
-</template>
-```
-
-<div class="mt-4 p-4 bg-yellow-50 rounded">
-  <strong>🌳 構造のイメージ：</strong><br>
-  <code>/user/123</code> → UserHome<br>
-  <code>/user/123/profile</code> → UserProfile<br>
-  <code>/user/123/posts</code> → UserPosts
-</div>
-
-</div>
-
-</div>
 
 <!--
 ネストされたルートを使うと、共通のレイアウト（ヘッダーやナビゲーション）を持ちながら、
@@ -481,92 +462,113 @@ URLの階層構造とコンポーネントの階層構造が対応します。
 
 # プログラムによるナビゲーション 🧭
 
-JavaScriptコードでページ遷移を制御
+**JavaScriptでページ遷移を制御**
 
-<div class="grid grid-cols-2 gap-6">
+フォーム送信後、ログイン成功後などに使用。
+
+---
+
+# 基本的なナビゲーション 📍
+
+<div class="grid grid-cols-2 gap-8">
 
 <div>
 
-## 基本的なナビゲーション
+## コード例
 
-```ts {monaco}
-import { useRouter } from 'vue-router'
-
-export default {
-  setup() {
-    const router = useRouter()
-
-    const goToUser = (userId: string) => {
-      // 新しいエントリをhistoryスタックに追加
-      router.push(`/users/${userId}`)
-    }
-
-    const goBack = () => {
-      // ブラウザの戻るボタンと同じ
-      router.go(-1)
-    }
-
-    const replaceRoute = () => {
-      // 現在のエントリを置き換え（戻れない）
-      router.replace('/dashboard')
-    }
-
-    return {
-      goToUser,
-      goBack,
-      replaceRoute
-    }
-  }
-}
-```
-
-</div>
-
-<div v-click>
-
-## 実用的な例
-
-```vue {monaco}
-<!-- Login.vue -->
-<template>
-  <form @submit.prevent="login">
-    <input v-model="username" placeholder="ユーザー名">
-    <input v-model="password" type="password" placeholder="パスワード">
-    <button type="submit">ログイン</button>
-  </form>
-</template>
-
-<script setup lang="ts">
-import { ref } from 'vue'
+```ts
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-const username = ref('')
-const password = ref('')
+
+const goToUser = (userId: string) => {
+  router.push(`/users/${userId}`)
+}
+```
+
+</div>
+
+<div>
+
+## なぜ必要？
+
+**push()の特徴**
+- 履歴に追加される
+- 戻るボタンが使える
+
+**使用場面**
+- ボタンクリック時
+- 処理完了後の遷移
+
+</div>
+
+</div>
+
+---
+
+# ナビゲーションメソッド 🔄
+
+<div class="grid grid-cols-2 gap-8">
+
+<div>
+
+## 3つのメソッド
+
+<div class="space-y-4 text-lg">
+
+**`push()`** - 履歴に追加  
+**`replace()`** - 履歴を置換  
+**`go(n)`** - n個前/後に移動
+
+</div>
+
+</div>
+
+<div>
+
+## いつ使う？
+
+**push()** → 通常の画面遷移
+
+**replace()** → ログイン後など
+
+**go(-1)** → 戻るボタン
+
+</div>
+
+</div>
+
+---
+
+# ログインフォーム例 📝
+
+```vue
+<!-- Login.vue template -->
+<template>
+  <form @submit.prevent="login">
+    <input v-model="username" placeholder="ユーザー名">
+    <button type="submit">ログイン</button>
+  </form>
+</template>
+```
+
+---
+
+# ログイン処理例 🔑
+
+```vue
+<!-- Login.vue script -->
+<script setup lang="ts">
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const login = async () => {
-  try {
-    await authenticateUser(username.value, password.value)
-    
-    // ログイン成功後、ダッシュボードへリダイレクト
-    router.push('/dashboard')
-  } catch (error) {
-    console.error('ログイン失敗:', error)
-  }
+  await authenticateUser()
+  router.push('/dashboard') // ログイン成功後リダイレクト
 }
 </script>
 ```
-
-<div class="mt-4 p-3 bg-green-50 rounded text-sm">
-  <strong>🔄 メソッドの違い:</strong><br>
-  • <code>push()</code> - 履歴に追加（戻れる）<br>
-  • <code>replace()</code> - 履歴を置換（戻れない）<br>
-  • <code>go(n)</code> - n個前/後に移動
-</div>
-
-</div>
-
-</div>
 
 <!--
 プログラムによるナビゲーションは、ユーザーのアクションに応じてページ遷移を制御する際に使います。
@@ -576,104 +578,90 @@ pushとreplaceの違いを理解することが重要です。
 
 ---
 
-# ナビゲーションガード 🛡️
+# ナビゲーションガードとは 🛡️
 
-ページ遷移時のアクセス制御
+**ページ遷移の前後に実行されるセキュリティチェック**
 
-<div class="grid grid-cols-2 gap-6">
+アクセス制御（ログイン確認、権限チェック）やユーザビリティ向上（未保存データの確認）に使用します。
+
+---
+
+# グローバルなガード 🌐
+
+<div class="grid grid-cols-2 gap-8">
 
 <div>
 
-## グローバルなガード
+## コード例
 
-```ts {monaco}
+```ts
 // router/index.ts
-import { createRouter } from 'vue-router'
-
-const router = createRouter({
-  // ...routes
-})
-
-// 全ての遷移前に実行
 router.beforeEach((to, from, next) => {
-  // 認証が必要なページの場合
   if (to.meta.requiresAuth) {
     if (!isAuthenticated()) {
-      // ログインページにリダイレクト
       next('/login')
     } else {
-      next() // 遷移を許可
+      next()
     }
   } else {
-    next() // 遷移を許可
+    next()
   }
 })
-
-// ルート定義（メタフィールド付き）
-const routes = [
-  {
-    path: '/dashboard',
-    component: Dashboard,
-    meta: { requiresAuth: true }
-  },
-  {
-    path: '/login',
-    component: Login
-  }
-]
 ```
 
 </div>
 
-<div v-click>
+<div>
 
-## コンポーネント内ガード
+## 重要ポイント
 
-```vue {monaco}
-<!-- UserEdit.vue -->
+**いつ実行される？**
+- 全ページ遷移時
+
+**パラメータ**
+- `to`: 行き先
+- `from`: 元の場所
+- `next`: 許可/拒否
+
+⚠️ **next()は必須！**
+
+</div>
+
+</div>
+
+---
+
+# コンポーネント内ガード: フォーム 📝
+
+```vue
+<!-- UserEdit.vue template -->
 <template>
   <form @submit.prevent="save">
     <input v-model="userData.name" placeholder="名前">
     <button type="submit">保存</button>
   </form>
 </template>
+```
 
+---
+
+# コンポーネント内ガード: 確認処理 🔒
+
+```vue
+<!-- UserEdit.vue script -->
 <script setup lang="ts">
-import { ref, onBeforeRouteLeave } from 'vue-router'
+import { onBeforeRouteLeave } from 'vue-router'
 
-const userData = ref({ name: '' })
-const hasUnsavedChanges = ref(false)
-
-// フォームの変更を監視
-watch(userData, () => {
-  hasUnsavedChanges.value = true
-}, { deep: true })
-
-// ページを離れる前に確認
 onBeforeRouteLeave((to, from, next) => {
   if (hasUnsavedChanges.value) {
-    const answer = window.confirm(
-      '未保存の変更があります。本当に離れますか？'
-    )
-    if (answer) {
-      next()
-    } else {
-      next(false) // 遷移をキャンセル
-    }
+    const answer = window.confirm('未保存データがあります')
+    next(answer)
   } else {
     next()
   }
 })
 </script>
 ```
-
-<div class="mt-4 p-3 bg-red-50 rounded text-sm">
-  <strong>⚠️ 注意:</strong> <code>next()</code>を必ず呼ぶこと
-</div>
-
-</div>
-
-</div>
 
 <!--
 ナビゲーションガードはセキュリティとユーザビリティの両方で重要です。
@@ -687,50 +675,109 @@ layout: center
 class: text-center
 ---
 
-# まとめ & 次のステップ 🎯
+# 今日学んだこと (1/2) ✅
 
-<div class="grid grid-cols-2 gap-8 mt-8">
+<div class="text-center mt-12">
 
-<div>
+## **Vue Routerの基本をマスターしました！**
 
-## 今日学んだこと ✅
+<div class="mt-16 text-2xl space-y-6">
 
-<v-clicks>
+✅ Vue Routerの基本概念と役割
 
-- Vue Routerの基本概念と役割
-- セットアップと基本設定
-- router-link と router-view の使い方
-- 動的ルーティング（パラメータ）
-- ネストされたルート（親子関係）
-- プログラムによるナビゲーション
-- ナビゲーションガード（アクセス制御）
+✅ セットアップと基本設定
 
-</v-clicks>
-
-</div>
-
-<div v-click="8">
-
-## 次のステップ 🚀
-
-### さらに学ぶべき内容
-- 遅延ローディング（Lazy Loading）
-- スクロール動作のカスタマイズ
-- トランジション/アニメーション
-- 高度なナビゲーションガード
-
-### リソース 📚
-- [Vue Router公式ドキュメント](https://router.vuejs.org/)
-- [Vue.js公式ガイド](https://vuejs.org/guide/)
-- [実践的なサンプルコード](https://github.com/vuejs/router)
+✅ router-link と router-view の使い方
 
 </div>
 
 </div>
 
-<div v-click="9" class="mt-12 p-6 bg-green-50 rounded-lg">
-  <h3 class="text-xl font-bold mb-4">🎉 お疲れさまでした！</h3>
-  <p>Vue Routerの基礎をマスターしたあなたは、本格的なVue.jsアプリケーションを作る準備ができています。</p>
+---
+
+# 今日学んだこと (2/2) ✅
+
+<div class="text-center mt-12">
+
+<div class="mt-16 text-2xl space-y-6">
+
+✅ 動的ルーティング（パラメータ）
+
+✅ ネストされたルート
+
+✅ プログラムによるナビゲーション
+
+✅ ナビゲーションガード
+
+</div>
+
+</div>
+
+---
+
+# 次のステップ 🚀
+
+<div class="text-center mt-16">
+
+## **さらに学ぶべき内容**
+
+<div class="text-2xl space-y-8">
+
+📚 遅延ローディング（Lazy Loading）
+
+🎨 トランジション/アニメーション
+
+🛡️ 高度なナビゲーションガード
+
+</div>
+
+</div>
+
+---
+
+# 参考リソース 📚
+
+<div class="text-center mt-16">
+
+## **さらに学習を続けるために**
+
+<div class="mt-16 space-y-6">
+
+<div class="p-6 bg-blue-900 text-white rounded border">
+  <h3 class="text-xl font-bold mb-2">📝 Vue Router公式ドキュメント</h3>
+  <p class="text-lg">https://router.vuejs.org/</p>
+</div>
+
+<div class="p-6 bg-green-800 text-white rounded border">
+  <h3 class="text-xl font-bold mb-2">📚 Vue.js公式ガイド</h3>
+  <p class="text-lg">https://vuejs.org/guide/</p>
+</div>
+
+</div>
+
+</div>
+
+---
+layout: center
+class: text-center
+---
+
+# 🎉 お疲れさまでした！
+
+<div class="mt-12">
+
+## **Vue Routerの基礎をマスターしました**
+
+<div class="mt-16 text-xl">
+
+本格的なVue.jsアプリケーションを作る準備ができています。
+
+<div class="mt-12 text-lg opacity-80">
+小さなプロジェクトから始めて、学んだ機能を実際に使ってみましょう！
+</div>
+
+</div>
+
 </div>
 
 <!--
