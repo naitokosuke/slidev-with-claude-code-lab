@@ -1,15 +1,15 @@
 ---
-theme: default
+theme: ./
 class: text-center
 highlighter: shiki
 lineNumbers: false
 info: |
-  ## Custom Theme Sample Slides
-  Lorem ipsum presentation for Slidev custom theme development
+  ## Deep Sea Theme Sample Slides
+  Lorem ipsum presentation with deep sea inspired theme
 drawings:
   persist: false
 transition: slide-left
-title: Custom Theme Sample
+title: Deep Sea Theme Sample
 ---
 
 # Lorem Ipsum Presentation
