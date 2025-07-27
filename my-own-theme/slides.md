@@ -1,6 +1,7 @@
 ---
 theme: ./
 class: text-center
+layout: center
 highlighter: shiki
 lineNumbers: false
 info: |
@@ -12,7 +13,7 @@ transition: slide-left
 title: Deep Sea Theme Sample
 ---
 
-# Lorem Ipsum Presentation
+# Lorem Ipsum
 
 Custom Theme Development Sample
 
