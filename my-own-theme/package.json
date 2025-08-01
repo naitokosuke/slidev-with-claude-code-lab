@@ -1,0 +1,22 @@
+{
+  "name": "slidev-theme-deep-sea",
+  "version": "1.0.0",
+  "description": "A deep sea inspired theme for Slidev",
+  "keywords": ["slidev-theme", "slidev", "deep-sea", "ocean", "blue"],
+  "type": "module",
+  "main": "index.ts",
+  "files": ["layouts", "components", "styles", "index.ts"],
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^52.1.0",
+    "@slidev/theme-default": "latest",
+    "@slidev/theme-seriph": "latest",
+    "vue": "^3.5.18"
+  },
+  "author": "ナイトウコウスケ",
+  "license": "MIT"
+}
