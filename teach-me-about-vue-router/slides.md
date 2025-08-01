@@ -111,15 +111,17 @@ h1 {
     <pre class="bg-gray-900 p-4 rounded-lg overflow-x-auto"><code class="language-bash">npm install vue-router@4</code></pre>
   </div>
   <div>
-    <h3 class="text-2xl font-bold text-green-400 mb-4">2. プロジェクトへの追加</h3>
-    <pre class="bg-gray-900 p-4 rounded-lg overflow-x-auto"><code class="language-bash"># Vue CLIの場合
-vue add router</code></pre>
+    <h3 class="text-2xl font-bold text-green-400 mb-4">2. プロジェクト作成</h3>
+    <pre class="bg-gray-900 p-4 rounded-lg overflow-x-auto"><code class="language-bash"># Viteを使用
+npm create vue@latest my-project
+cd my-project
+npm install</code></pre>
   </div>
 </div>
 
 <div class="mt-12 p-6 bg-yellow-900/20 rounded-lg border border-yellow-600/40">
   <p class="text-yellow-400 font-bold">💡 ポイント</p>
-  <p class="text-sm mt-2">Vue 3 には Vue Router 4 を使用します</p>
+  <p class="text-sm mt-2">create-vue で Vue Router を選択すると自動で設定されます</p>
 </div>
 
 <style>
