@@ -1,0 +1,4 @@
+packages:
+  - 'my-own-theme'
+  - 'self-intro'
+  - 'teach-me-about-vue-router'
